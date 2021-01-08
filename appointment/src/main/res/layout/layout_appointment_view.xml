@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="appointment"
+            type="com.app.base.model.network.appointment.Appointment" />
+
+        <import type="com.app.base.utils.Utils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/margin_l"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pet_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_card"
+                android:background="@drawable/my_background_white">
+
+                <TextView
+                    android:id="@+id/store_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:layout_marginTop="@dimen/margin_s"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_s"
+                    android:text="@{appointment.vetstore.name}"
+                    android:textSize="@dimen/font_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/barrier"
+                    app:layout_constraintHorizontal_bias="0.028"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Animals Veterinaria sasa " />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_xs"
+                    android:baselineAlignBottom="true"
+                    android:src="@drawable/paw_icon"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView2"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/store_name"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_l"
+                    android:baselineAlignBottom="true"
+                    android:src="@drawable/calendar_clock"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/appointment_date"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/appointment_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:layout_marginBottom="@dimen/margin_l"
+                    android:text="@{Utils.dateFormatToString(appointment.initial_date)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/pet_name"
+                    tools:text="9:50 Miercoles 20 Septiembre" />
+
+                <TextView
+                    android:id="@+id/pet_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xs"
+                    android:layout_marginBottom="@dimen/margin_xs"
+                    android:text="@{appointment.pet.name}"
+                    app:layout_constraintBottom_toTopOf="@+id/appointment_date"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@+id/store_name"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Firulais" />
+
+                <TextView
+                    android:id="@+id/phone_Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_s"
+                    android:paddingLeft="@dimen/margin_xs"
+                    android:paddingTop="@dimen/margin_xs"
+                    android:paddingRight="@dimen/margin_xs"
+                    android:text="@{appointment.vetstore.phone_number}"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/address_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="01-8000-1234-1234" />
+
+                <TextView
+                    android:id="@+id/address_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin_xs"
+                    android:paddingTop="@dimen/margin_xs"
+                    android:paddingRight="@dimen/margin_xs"
+                    android:text="@{appointment.vetstore.address}"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.526"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_Label"
+                    tools:text="cra 33 33 33" />
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="end"
+                    android:minHeight="0dp"
+                    android:padding="@dimen/margin_xs"
+                    android:text="@string/cancel_label"
+                    android:textSize="@dimen/font_m"
+                    app:appointmentStatus="@{appointment._status}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appointment_date" />
+
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="left"
+                    app:constraint_referenced_ids="phone_Label,address_label" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

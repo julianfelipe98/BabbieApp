@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_pet"
+    app:startDestination="@id/petListFragment">
+
+    <fragment
+        android:id="@+id/petListFragment"
+        android:name="com.app.petmgt.pets.PetListFragment"
+        android:label="fragment_pet_list"
+        tools:layout="@layout/fragment_pet_list" >
+        <action
+            android:id="@+id/action_petListFragment_to_createPetFragment"
+            app:destination="@id/createPetFragment" />
+        <action
+            android:id="@+id/action_petListFragment_to_detailPetFragment"
+            app:destination="@id/detailPetFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myApp://listPet" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPetFragment"
+        android:name="com.app.petmgt.pets.CreatePetFragment"
+        android:label="CreatePetFragment" >
+    <argument
+        android:name="idPet"
+        app:argType="string"
+        app:nullable="true" />
+        <action
+            android:id="@+id/action_createPetFragment_to_petListFragment"
+            app:destination="@id/petListFragment" />
+        <action
+            android:id="@+id/action_createPetFragment_to_detailPetFragment"
+            app:destination="@id/detailPetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPetFragment"
+        android:name="com.app.petmgt.pets.DetailPetFragment"
+        android:label="DetailPetFragment" >
+        <argument
+            android:name="pet"
+            app:argType="com.app.base.model.network.petMgt.Pet" />
+        <action
+            android:id="@+id/action_detailPetFragment_to_createPetFragment"
+            app:destination="@id/createPetFragment" />
+    </fragment>
+</navigation>

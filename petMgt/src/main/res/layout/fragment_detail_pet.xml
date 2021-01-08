@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.app.petmgt.pets.viewModel.CreatePetViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:context=".pets.DetailPetFragment">
+
+                <!-- TODO: Update blank fragment layout -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/card_size_xl"
+                    android:layout_marginTop="@dimen/margin_m"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_margin="@dimen/margin_card"
+                            android:background="@drawable/my_background_white">
+
+                            <TextView
+                                android:id="@+id/pet_id_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/margin_xs"
+                                android:gravity="center"
+                                android:text="@string/id_label"
+
+                                app:layout_constraintStart_toStartOf="@+id/guideline"
+                                app:layout_constraintTop_toBottomOf="@+id/pet_name"
+                                tools:text="@string/id_label" />
+
+                            <ImageView
+                                android:id="@+id/pet_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/card_size"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:foreground="@drawable/circle_image"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/paloma"
+                                app:imageUrl="@{viewModel.pet.picture_url}"
+                                app:layout_constraintBottom_toTopOf="@+id/edit_button"
+                                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                            <TextView
+                                android:id="@+id/pet_name"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:lines="2"
+                                android:maxLines="2"
+                                android:text="@{viewModel.pet.name}"
+                                android:textSize="@dimen/font_title"
+
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="@+id/guideline"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.264"
+                                app:layout_constraintVertical_chainStyle="packed"
+                                tools:text="Paloma " />
+
+                            <TextView
+                                android:id="@+id/pet_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_m"
+                                android:gravity="center"
+                                android:text="@{viewModel.pet.id}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+
+                                app:layout_constraintStart_toEndOf="@+id/pet_id_label"
+                                app:layout_constraintTop_toBottomOf="@+id/pet_name"
+                                tools:text="Palomahh" />
+
+
+                            <Button
+                                android:id="@+id/edit_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:minHeight="0dp"
+                                android:text="@string/edit_pet"
+                                android:textAllCaps="false"
+                                android:textSize="@dimen/font_m"
+                                app:layout_constraintBottom_toBottomOf="parent"
+
+                                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/pet_image"
+                                tools:text="@string/edit_pet" />
+
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/guideline"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_begin="175dp" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_xxl"
+                    android:columnCount="3"
+                    android:paddingTop="@dimen/margin_l"
+                    android:paddingBottom="@dimen/margin_l"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/vaccine_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/vaccine_label"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_m"
+                        app:layout_constraintEnd_toEndOf="@+id/vaccine_button"
+                        app:layout_constraintStart_toStartOf="@+id/vaccine_button"
+                        app:layout_constraintTop_toBottomOf="@+id/vaccine_button" />
+
+                    <ImageView
+                        android:id="@+id/vaccine_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/margin_m"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/my_background_button"
+                        android:padding="@dimen/margin_xs"
+                        android:scaleType="centerCrop"
+                        android:tag="@string/vaccine_tag"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/deworming_button"
+                        app:layout_constraintEnd_toStartOf="@+id/deworming_button"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/vaccine" />
+
+                    <ImageView
+                        android:id="@+id/deworming_button"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/margin_m"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/my_background_button"
+                        android:padding="@dimen/margin_xs"
+                        android:scaleType="centerCrop"
+                        android:tag="@string/deworming_tag"
+                        app:layout_constraintBottom_toBottomOf="@+id/vaccine_button"
+                        app:layout_constraintEnd_toStartOf="@+id/appointment_buttons"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/vaccine_button"
+                        app:layout_constraintTop_toTopOf="@+id/vaccine_button"
+                        app:layout_constraintVertical_chainStyle="spread_inside"
+                        app:srcCompat="@drawable/tick" />
+
+
+                    <TextView
+                        android:id="@+id/deworming_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/deworming_label"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_m"
+                        app:layout_constraintEnd_toEndOf="@+id/deworming_button"
+                        app:layout_constraintStart_toStartOf="@+id/deworming_button"
+                        app:layout_constraintTop_toBottomOf="@+id/deworming_button" />
+
+                    <ImageView
+                        android:id="@+id/appointment_buttons"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/margin_m"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/my_background_button"
+                        android:padding="@dimen/margin_xs"
+                        android:scaleType="centerCrop"
+                        android:tag="@string/appointment_tag"
+                        app:layout_constraintBottom_toBottomOf="@+id/deworming_button"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/deworming_button"
+                        app:layout_constraintTop_toTopOf="@+id/deworming_button"
+                        app:srcCompat="@drawable/appointment" />
+
+                    <TextView
+                        android:id="@+id/appointment_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/appointment_label"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_m"
+                        app:layout_constraintEnd_toEndOf="@+id/appointment_buttons"
+                        app:layout_constraintStart_toStartOf="@+id/appointment_buttons"
+                        app:layout_constraintTop_toBottomOf="@+id/appointment_buttons" />
+
+                    <ImageView
+                        android:id="@+id/medicine_buttons"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/margin_m"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/my_background_button"
+                        android:baselineAlignBottom="true"
+                        android:padding="@dimen/margin_xs"
+                        android:scaleType="centerCrop"
+                        android:tag="@string/medicine_tag"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/pet_grooming_buttons"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/deworming_label"
+                        app:srcCompat="@drawable/medicine" />
+
+                    <TextView
+                        android:id="@+id/medicine_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/medicine_label"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_m"
+                        app:layout_constraintEnd_toEndOf="@+id/medicine_buttons"
+                        app:layout_constraintStart_toStartOf="@+id/medicine_buttons"
+                        app:layout_constraintTop_toBottomOf="@+id/medicine_buttons" />
+
+                    <ImageView
+                        android:id="@+id/pet_grooming_buttons"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/margin_m"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/my_background_button"
+                        android:baselineAlignBottom="true"
+                        android:padding="@dimen/margin_xs"
+                        android:scaleType="centerCrop"
+                        android:tag="@string/pet_grooming_tag"
+                        app:layout_constraintBaseline_toBaselineOf="@+id/medicine_buttons"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/medicine_buttons"
+                        app:srcCompat="@drawable/pet_grooming" />
+
+                    <TextView
+                        android:id="@+id/pet_grooming_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/pet_grooming_label"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_m"
+                        app:layout_constraintEnd_toEndOf="@+id/pet_grooming_buttons"
+                        app:layout_constraintStart_toStartOf="@+id/pet_grooming_buttons"
+                        app:layout_constraintTop_toBottomOf="@+id/pet_grooming_buttons" />
+
+                    <androidx.constraintlayout.widget.Group
+                        android:id="@+id/group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/loadingPanel"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.8"
+                    android:background="#000000" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true" />
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

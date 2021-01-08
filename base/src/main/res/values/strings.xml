@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">BabbieApp</string>
+
+    <string name="title_activity_login">LOGIN</string>
+
+    <!-- Strings related to login -->
+
+    <string name="action_sign_in_facebook">Sign in with Facebook</string>
+    <string name="action_sign_in_gmail">Sign in with Gmail</string>
+    <string name="log_out">Log out</string>
+    <string name="facebook_app_id">2671034283137449</string>
+    <string name="fb_login_protocol_scheme">fb2671034283137449</string>
+
+    <!-- Strings related to cart -->
+
+    <string name="action_place_order">Place order</string>
+    <string name="total_label">Total</string>
+    <string name="cart_label">Your cart</string>
+    <string name="order_label">My Orders</string>
+    <string name="clean_cart_label">Empty Cart</string>
+    <string name="empty_cart_label"> You haven\'t added any \nproduct to your cart</string>
+    <string name="confirm_message">After your purchase is confirmed, the stores you ordered from will contact you</string>
+    <string name="confirm_label">Confirm</string>
+    <string name="confirm_label_two">Confirm order</string>
+
+    <!-- Strings related to Store -->
+
+    <string name="store_label">Available stores</string>
+    <string name="empty_search_label">No results found for your search</string>
+    <string name="empty_products">There is no product available in this store</string>
+    <string name="add_product">Add to cart</string>
+
+    <!-- Strings related to Filters -->
+
+    <string name="lower_price_label">Lower price</string>
+    <string name="higher_price_label">Higher price</string>
+    <string name="search_label">Search by Product Name </string>
+
+    <!-- Strings related to User -->
+
+    <string name="address_label">Address</string>
+    <string name="phone_label">Phone</string>
+    <string name="my_orders">My Orders</string>
+    <string name="your_profile">You Profile</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_email">E-mail</string>
+    <string name="create_user_save">Save</string>
+    <string name="finish_sign_in">Complete your profile</string>
+    <string name="mandatory_field">Required</string>
+    <string name="my_profile">My profile</string>
+    <string name="success_edited_pet">Successfully edited pet</string>
+    <string name="sign_out">Sign out</string>
+    <string name="login_alert_title">Error</string>
+    <string name="login_alert_message">Authentication failed</string>
+    <string name="login_alert_ok">Ok</string>
+
+    <!-- related to pet list -->
+
+    <string name="add_label">add pet</string>
+    <string name="id_label">ID:</string>
+    <string name="edit_pet">Edit pet</string>
+    <string name="date_format">dd/mm/yyyy</string>
+    <string name="name_label">Name</string>
+    <string name="breed_label">Breed</string>
+    <string name="species_label">Kind</string>
+    <string name="Create_pet_label">"Add your pet"</string>
+    <string name="empty_pet_label">you haven\'t created any pets yet</string>
+    <string name="vaccine_label">Vaccines</string>
+    <string name="deworming_label">Deworming</string>
+    <string name="appointment_label">Appointment</string>
+    <string name="alert_label">Alerts</string>
+    <string name="medicine_label">Prescriptions</string>
+    <string name="pet_grooming_label">Pet Grooming</string>
+    <string name="vaccine_tag">vaccination</string>`
+    <string name="deworming_tag">deworming</string>
+    <string name="medicine_tag">prescriptions</string>
+    <string name="appointment_tag">Medical</string>
+    <string name="pet_grooming_tag">pet_grooming</string>
+    <string name="empty_records_label">You haven\'t added any \nrecords of your pet</string>
+
+    <!--    events string-->
+
+    <string name="vaccine">VACCINE</string>
+    <string name="deworming">DEWORMING</string>
+    <string name="flea">FLEAS</string>
+    <string name="grooming">GROOMING</string>
+    <string name="others">OTHERS</string>
+    <string name="pick_pet">CHOOSE THE PETS THAT HAD THIS EVENT</string>
+    <string name="save_changes">Save Changes</string>
+
+    <!-- Strings related to Records -->
+
+    <string name="new_record_label">New event</string>
+    <string name="title_label">Title</string>
+    <string name="description_label">Description</string>
+    <string name="event_date_label">Event date</string>
+    <string name="event_next_date_label">Next event date</string>
+
+    <!-- Strings related to appointment -->
+
+    <string name="next_appointment_label">Upcoming appointments</string>
+    <string name="empty_appointment_label">You have no appointment \nscheduled  </string>
+    <string name="save_appointment">Schedule appointments</string>
+    <string name="vet_label">Available Veterinary</string>
+    <string name="choose_appointment_label">Choose the date and time </string>
+    <string name="canceled_label">Canceled</string>
+    <string name="cancel_label">Cancel</string>
+    <string name="empty_appointment_label_vet">There are no upcoming \nappointments available at this veterinary clinic</string>
+    <string name="search_label_store">Find veterinary</string>
+
+    <!-- Strings related to events -->
+
+    <string name="events_label">Events</string>
+    <string name="empty_event_label">There are no upcoming \nevents</string>
+
+</resources>

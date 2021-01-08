@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="record"
+            type="com.app.base.model.network.records.Record" />
+
+        <import type="com.app.base.utils.Utils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:text="@string/new_record_label"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/font_title"
+            app:layout_constraintBottom_toTopOf="@+id/textView_title_Type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView_title_Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/font_title"
+            app:layout_constraintBottom_toTopOf="@+id/title_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title"
+            tools:text="Vacuna" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_label"
+            android:textSize="@dimen/font_m"
+            app:layout_constraintBottom_toTopOf="@+id/title_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/title_edit_text" />
+
+        <EditText
+            android:id="@+id/title_edit_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginRight="@dimen/margin_l"
+            android:hint="@string/title_label"
+            android:text="@={record.title}"
+            app:layout_constraintBottom_toTopOf="@+id/description_edit_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title_Type" />
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description_label"
+            android:textSize="@dimen/font_m"
+            app:layout_constraintBottom_toTopOf="@+id/description_edit_text"
+            app:layout_constraintStart_toStartOf="@+id/description_edit_text" />
+
+        <EditText
+            android:id="@+id/description_edit_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginRight="@dimen/margin_l"
+            android:hint="@string/description_label"
+            android:text="@={record.description}"
+            app:layout_constraintBottom_toTopOf="@+id/date_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_edit_text" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/date_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_m"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_edit_text">
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/event_date_label"
+                android:textSize="@dimen/font_m"
+                app:layout_constraintStart_toStartOf="@+id/date_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/date_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xxl"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:backgroundTint="@color/colorWhite"
+                android:baselineAlignBottom="true"
+                app:layout_constraintBottom_toBottomOf="@+id/date_picker_edit_field"
+                app:layout_constraintEnd_toStartOf="@+id/date_picker_edit_field"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/date_picker_edit_field"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/calendar_month" />
+
+            <EditText
+                android:id="@+id/date_picker_edit_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:background="@null"
+                android:focusable="false"
+                android:hint="dd/mm/yyyy"
+                android:inputType="none"
+                android:text="@={record.start_date}"
+                app:layout_constraintStart_toEndOf="@+id/date_button"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="19dp"
+                android:text="@string/event_next_date_label"
+                android:textSize="@dimen/font_m"
+                app:layout_constraintStart_toStartOf="@+id/date_button2"
+                app:layout_constraintTop_toBottomOf="@+id/date_picker_edit_field" />
+
+            <ImageView
+                android:id="@+id/date_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xxl"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:backgroundTint="@color/colorWhite"
+                android:baselineAlignBottom="true"
+                app:layout_constraintBottom_toBottomOf="@+id/date_picker_edit_field2"
+                app:layout_constraintEnd_toStartOf="@+id/date_picker_edit_field2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/date_picker_edit_field2"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/calendar_month" />
+
+            <EditText
+                android:id="@+id/date_picker_edit_field2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="@dimen/margin_xs"
+                android:background="@null"
+                android:focusable="false"
+                android:hint="dd/mm/yyyy"
+                android:inputType="none"
+                android:text="@={record.next_date}"
+                app:layout_constraintStart_toEndOf="@+id/date_button2"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintVertical_chainStyle="packed" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/confirm_button"
+            style="@style/Blue_button"
+            android:layout_marginTop="@dimen/margin_xl"
+            android:layout_marginBottom="@dimen/margin_xl"
+            android:text="@string/save_changes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_layout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

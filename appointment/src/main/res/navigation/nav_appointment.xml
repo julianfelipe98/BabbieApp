@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_appointment"
+    app:startDestination="@id/appointmentPetListFragment">
+
+    <fragment
+        android:id="@+id/appointmentListFragment"
+        android:name="com.app.appointment.AppointmentListFragment"
+        android:label="AppointmentListFragment">
+        <argument
+            android:name="idPet"
+            app:argType="string" />
+        <argument
+            android:name="appointmentTag"
+            app:argType="string" />
+        <argument
+            android:name="idVet"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_appointmentListFragment_to_appointmentPetListFragment"
+            app:destination="@id/appointmentPetListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vetListFragment"
+        android:name="com.app.appointment.VetListFragment"
+        android:label="VetListFragment">
+        <action
+            android:id="@+id/action_vetListFragment_to_appointmentListFragment"
+            app:destination="@id/appointmentListFragment" />
+        <argument
+            android:name="idPet"
+            app:argType="string" />
+        <argument
+            android:name="appointmentTag"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/appointmentPetListFragment"
+        android:name="com.app.appointment.AppointmentPetListFragment"
+        android:label="AppointmentPetListFragment">
+        <action
+            android:id="@+id/action_appointmentPetListFragment_to_vetListFragment"
+            app:destination="@id/vetListFragment" />
+        <argument
+            android:name="idPet"
+            app:argType="string" />
+        <argument
+            android:name="appointmentTag"
+            app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myApp://fragmentAppointment/{appointmentTag}/{idPet}" />
+
+
+    </fragment>
+</navigation>

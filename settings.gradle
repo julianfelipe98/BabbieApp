@@ -1,0 +1,10 @@
+include ':event'
+include ':store'
+include ':cart'
+include ':appointment'
+include ':record'
+include ':petMgt'
+include ':base'
+include ':auth'
+include ':app'
+rootProject.name = "BabbieApp"

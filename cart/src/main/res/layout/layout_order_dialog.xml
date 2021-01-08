@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.app.cart.cart.CartViewModel" />
+        <import type="com.app.base.utils.Utils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:id="@+id/loadingPanel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="10dp"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:layout_marginBottom="@dimen/margin_m"
+            android:text="@string/confirm_label_two"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/font_title"
+            app:layout_constraintBottom_toTopOf="@+id/textView_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView_message"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_l"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:layout_marginRight="@dimen/margin_l"
+            android:layout_marginBottom="@dimen/margin_xs"
+            android:gravity="center"
+            android:lines="3"
+            android:maxLines="3"
+            android:text="@string/confirm_message"
+            app:layout_constraintBottom_toTopOf="@+id/data_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_title" />
+
+        <RelativeLayout
+            android:id="@+id/data_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_m"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_message">
+
+            <TextView
+                android:id="@+id/textView_total"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_xs"
+                android:layout_marginBottom="@dimen/margin_s"
+                android:gravity="center"
+                android:text="@string/total_label" />
+
+            <TextView
+                android:id="@+id/textView_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_s"
+                android:layout_toRightOf="@id/textView_total"
+                android:text="@{Utils.currencyFormat(viewModel.totalValue)}"
+                tools:text="$2222.2222" />
+
+            <TextView
+                android:id="@+id/textView_address"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_total"
+                android:layout_marginRight="@dimen/margin_xs"
+                android:layout_marginBottom="@dimen/margin_s"
+                android:gravity="center"
+                android:text="@string/address_label" />
+
+            <TextView
+                android:id="@+id/textView_adress_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_value"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="@dimen/margin_s"
+                android:layout_toRightOf="@id/textView_address"
+                android:text="@{viewModel.user.address}"
+                tools:text="$2222.2222" />
+
+            <TextView
+                android:id="@+id/textView_phone_label"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_address"
+                android:layout_marginRight="@dimen/margin_xs"
+                android:gravity="center"
+                android:text="@string/phone_label" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView_adress_value"
+                android:layout_toRightOf="@id/textView_phone_label"
+                android:text="@{viewModel.user.phone_number}"
+                tools:text="$2222.2222" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/confirm_button"
+            style="@style/Blue_button"
+            android:text="@string/confirm_label"
+            app:layout_constraintBottom_toTopOf="@+id/cancel_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_layout" />
+
+        <Button
+            android:id="@+id/cancel_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:layout_marginBottom="@dimen/margin_l"
+            android:background="@drawable/my_background_round_corners"
+            android:text="@string/cancel_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

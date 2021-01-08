@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="time"
+            type="com.app.appointment.adapter.GeneralItem" />
+        <import type="com.app.base.utils.Utils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/time_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_xs"
+            android:background="@drawable/my_background_filters"
+            android:minHeight="0dp"
+            android:paddingLeft="@dimen/margin_s"
+            android:paddingTop="@dimen/margin_xs"
+            android:paddingRight="@dimen/margin_s"
+            android:paddingBottom="@dimen/margin_xs"
+            android:text="@{Utils.hourFormatToString(time.appointment.initial_date)}"
+            android:textAllCaps="false"
+            tools:text="11:50" />
+
+    </LinearLayout>
+</layout>

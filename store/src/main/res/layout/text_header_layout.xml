@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="date"
+            type="com.app.store.profile.adapters.DateItem" />
+
+        <import type="com.app.base.utils.Utils" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{Utils.dateToString(date.date)}"
+            android:textSize="@dimen/font_m" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.app.base.model.network.User" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/background_inverted"
+            tools:context=".profile.ProfileFragment">
+
+            <RelativeLayout
+                android:id="@+id/loadingPanel"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:elevation="10dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.8"
+                    android:background="#000000" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true" />
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="11dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/buttonSaveChanges"
+                        android:layout_width="232dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/my_background_round_corners"
+                        android:backgroundTint="@color/colorPrimaryDark"
+                        android:drawableLeft="@drawable/paw"
+                        android:padding="@dimen/padding_button"
+                        android:text="@string/save_changes"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/button_my_orders"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Button
+                        android:id="@+id/button_my_orders"
+                        android:layout_width="232dp"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/my_background_round_corners"
+                        android:backgroundTint="@color/colorAccent"
+                        android:drawableLeft="@drawable/cart"
+                        android:padding="@dimen/padding_button"
+                        android:text="@string/my_orders"
+                        android:textAllCaps="false"
+                        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Button
+                        android:id="@+id/buttonLogOut"
+                        android:layout_width="158dp"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/padding_button"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/sign_out"
+                        android:textAllCaps="false"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_xl"
+                        android:layout_marginBottom="@dimen/margin_xxl"
+                        android:text="@string/your_profile"
+                        android:textSize="30sp"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextTextName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextTextPostalAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:ems="10"
+
+                        android:text="@={user.address}"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="42dp"
+                        android:ems="10"
+
+                        android:text="@={user.phone_number}"
+                        app:layout_constraintBottom_toTopOf="@+id/buttonSaveChanges"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/editTextTextName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:ems="10"
+
+                        android:text="@={user.name}"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextTextPostalAddress"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewName"
+                        android:layout_width="121dp"
+                        android:layout_height="20dp"
+                        android:text="@string/profile_name"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextTextName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.329"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewInfoAddress"
+                        android:layout_width="121dp"
+                        android:layout_height="20dp"
+                        android:text="@string/address_label"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextTextPostalAddress"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.329"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewInfoPhone"
+                        android:layout_width="121dp"
+                        android:layout_height="20dp"
+                        android:text="@string/phone_label"
+                        app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.329"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
+

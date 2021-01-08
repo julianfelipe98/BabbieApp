@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+                type="com.app.store.store.adapters.GeneralProduct"/>
+        <import type="com.app.base.utils.Utils"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_m"
+                android:layout_marginBottom="@dimen/margin_m">
+
+
+                <ImageView
+                    android:id="@+id/pet_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/item"
+                    app:imageUrl="@{product.product.product.picture_url}"
+                    android:layout_marginTop="@dimen/margin_l"
+                    android:layout_marginRight="@dimen/margin_l"
+                    android:layout_marginLeft="@dimen/margin_l"
+                    app:layout_constraintBottom_toTopOf="@+id/item_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{product.product.product.name}"
+                    android:textSize="@dimen/font_m"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:layout_marginBottom="@dimen/margin_xs"
+                    app:layout_constraintBottom_toTopOf="@+id/price_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pet_image"
+                    tool:text="Pet food test text" />
+
+                <TextView
+                    android:id="@+id/price_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{Utils.currencyFormat(product.product.price)}"
+                    android:textSize="@dimen/font_m"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:layout_marginBottom="@dimen/margin_xs"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_name"
+                    tool:text="$123.345" />
+
+                <Button
+                    android:id="@+id/add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="@string/add_product"
+                    android:background="@drawable/my_background_round_corners"
+                    android:backgroundTint="@color/colorAccent"
+                    android:paddingRight="@dimen/margin_l"
+                    android:paddingLeft="@dimen/margin_l"
+                    android:paddingTop="@dimen/margin_xxs"
+                    android:paddingBottom="@dimen/margin_xxs"
+                    android:layout_marginTop="@dimen/margin_xs"
+                    android:layout_marginBottom="@dimen/margin_xs"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/price_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

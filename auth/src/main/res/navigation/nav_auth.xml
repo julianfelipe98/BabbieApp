@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_auth"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.app.auth.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <deepLink app:uri="myApp://fragmentProfile" />
+    </fragment>/>
+</navigation>

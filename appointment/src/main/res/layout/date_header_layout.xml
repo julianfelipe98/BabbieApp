@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="date"
+            type="com.app.appointment.adapter.DateItem" />
+        <import type="com.app.base.utils.Utils" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_m"
+            android:layout_marginTop="@dimen/margin_xs"
+            android:layout_marginBottom="@dimen/margin_xxs"
+            android:text="@{Utils.dateToString(date.date)}"
+            android:textSize="@dimen/font_m"
+            tools:text="22/22/22" />
+
+    </LinearLayout>
+
+</layout>
